@@ -25,7 +25,7 @@ public class enemy : MonoBehaviour
         //the game object will slowly float 7 units in the z-axis
         transform.Translate(0, 0, moveSpeedOne * Time.deltaTime);
 
-        //if the game object floats less than or equal to 6 units on the z axis, it will stop floating
+        //if the game object floats less than or equal to 14 units on the z axis, it will stop floating
         if (transform.position.z >= 14f)
         {
             //the game object will stop floating
@@ -37,7 +37,7 @@ public class enemy : MonoBehaviour
 
         }
 
-        //if the game object moves less than or equal to -13 units on the z-axis, the following will occur
+        //if the game object moves less than or equal to 1 units on the z-axis, the following will occur
         if (transform.position.z <= 1)
         {
             //it will stop moving
