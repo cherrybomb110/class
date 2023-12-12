@@ -1,0 +1,70 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class enemy : MonoBehaviour
+{
+    //the number variables are being set;
+    float moveSpeedOne;
+    float moveSpeedTwo;
+    //the boolean variable is being set;
+    bool isitSo;
+    // Start is called before the first frame update
+    void Start()
+    {
+        //the number values are set to float 7 units
+        moveSpeedOne = 7f;
+        moveSpeedTwo = 7f;
+        //the game object will move in its set course of direction;
+        isitSo = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        //the game object will slowly float 7 units in the z-axis
+        transform.Translate(0, 0, moveSpeedOne * Time.deltaTime);
+
+        //if the game object floats less than or equal to 14 units on the z axis, it will stop floating
+        if (transform.position.z >= 14f)
+        {
+            //the game object will stop floating
+            moveSpeedOne = 0f;
+            //the object will move the opposite direction
+            isitSo = false;
+            //it will begin to float -7 units 
+            moveSpeedTwo = -7f;
+
+        }
+
+        //if the game object moves less than or equal to 1 units on the z-axis, the following will occur
+        if (transform.position.z <= 1)
+        {
+            //it will stop moving
+            moveSpeedTwo = 0f;
+            //it will move to its original course of direction
+            isitSo = true;
+            //it will float 7 units
+            moveSpeedOne = 7f;
+
+        }
+
+        //if the game object is moving its original direction, then the following will occur
+        if (isitSo == true)
+        {
+
+            //the game object will float 7 units slowly on the z-axis
+            transform.Translate(0, 0, moveSpeedOne * Time.deltaTime);
+
+        }
+
+        //if the game object stops moving this direction, then the following will occur
+        if (isitSo == false)
+        {
+            //the game object will float 7 units slowly on the z-axis
+            transform.Translate(0, 0, moveSpeedTwo * Time.deltaTime);
+
+        }
+
+    }
+}
